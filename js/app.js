@@ -98,4 +98,4 @@ if (themeToggle) {
 const savedTheme =
     localStorage.getItem("greens-theme") || "light";
 
-setTheme(savedTheme);
+//setTheme(savedTheme);
