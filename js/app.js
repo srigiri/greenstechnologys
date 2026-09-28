@@ -40,3 +40,62 @@ document.getElementById('leadForm')?.addEventListener('submit', e => {
   message.textContent = 'Thanks! Your request has been captured. Connect this form to your CRM/API.';
   e.target.reset();
 });
+
+
+
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeText = document.getElementById("themeText");
+
+const lightTheme = document.getElementById("lightTheme");
+const darkTheme = document.getElementById("darkTheme");
+
+function setTheme(theme) {
+
+    if (theme === "dark") {
+
+        lightTheme.disabled = true;
+        darkTheme.disabled = false;
+
+        document.body.classList.add("dark-mode");
+
+        themeIcon.className = "bi bi-sun-fill";
+        themeText.textContent = "Light";
+
+        localStorage.setItem("greens-theme", "dark");
+
+    } else {
+
+        darkTheme.disabled = true;
+        lightTheme.disabled = false;
+
+        document.body.classList.remove("dark-mode");
+
+        themeIcon.className = "bi bi-moon-stars-fill";
+        themeText.textContent = "Dark";
+
+        localStorage.setItem("greens-theme", "light");
+    }
+}
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", function () {
+
+        const currentTheme =
+            localStorage.getItem("greens-theme") || "light";
+
+        setTheme(
+            currentTheme === "dark"
+                ? "light"
+                : "dark"
+        );
+    });
+}
+
+/* Restore saved theme */
+
+const savedTheme =
+    localStorage.getItem("greens-theme") || "light";
+
+setTheme(savedTheme);
