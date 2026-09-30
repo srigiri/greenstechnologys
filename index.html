@@ -12,8 +12,15 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 	<link rel="stylesheet" href="css/dark.css" id="darkTheme" >
- <!-- <link rel="stylesheet" href="css/light.css" id="lightTheme" disabled> -->
+  <link rel="stylesheet" href="css/light.css" id="lightTheme" disabled>
 
+  <style>
+    /* Page-only additions ("Why Greens" section) */
+    .why-best-intro{color:var(--muted);margin:18px auto 0;max-width:640px}
+    .steps.four{grid-template-columns:repeat(4,1fr)}
+    @media(max-width:1100px){.steps.four{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.steps.four{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <div class="announcement">
@@ -25,7 +32,10 @@
 
   <header class="site-header" id="top">
     <div class="container nav-wrap">
-		<img src="https://greenstechnologys.com/images/logo.png" style="width: 150px;filter: brightness(1.7);">
+		<a href="#top" class="site-logo" aria-label="Greens Technology home">
+    <img src="https://greenstech.in/new-index-folder/images/greenstechnologys_logo.png"
+         alt="Greens Technology">
+</a>
       <a class="brand" href="#top" aria-label="Greens Technology home"  style="display:none">
         <span class="brand-mark"><span></span><span></span><span></span></span>
         <span>greens<span>technology</span></span>
@@ -37,12 +47,67 @@
 
       <nav class="nav" aria-label="Primary navigation">
     <a href="#courses">Courses</a>
+<!--    <li class="nav-dropdown">
+    <a href="Certifications.html">
+        Certifications
+        <span class="dropdown-arrow">⌄</span>
+    </a>
 
+    <div class="dropdown-menu">
+
+        <div class="dropdown-column">
+            <h4>Professional</h4>
+
+            <a href="Certifications.html">Oracle</a>
+            <a href="Certifications.html">PMP Certification</a>
+            <a href="Certifications.html">CAPM Certification</a>
+            <a href="Certifications.html">ITIL Certification</a>
+            <a href="Certifications.html">Scrum Master</a>
+        </div>
+
+        <div class="dropdown-column">
+            <h4>Testing</h4>
+
+            <a href="Certifications.html">ISTQB Certification</a>
+            <a href="Certifications.html">ASTQB Certified Mobile Tester</a>
+            <a href="Certifications.html">A+ Certification</a>
+            <a href="Certifications.html">Network+ Certification</a>
+            <a href="Certifications.html">Selenium</a>
+        </div>
+
+        <div class="dropdown-column">
+            <h4>Technology</h4>
+
+            <a href="Certifications.html">Data Science</a>
+            <a href="Certifications.html">DevOps</a>
+            <a href="Certifications.html">Microsoft Azure</a>
+            <a href="Certifications.html">Salesforce</a>
+            <a href="Certifications.html">Blockchain</a>
+        </div>
+
+        <div class="dropdown-column">
+            <h4>Automation</h4>
+
+            <a href="Certifications.html">UiPath</a>
+            <a href="Certifications.html">Blue Prism</a>
+            <a href="Certifications.html">Automation Anywhere</a>
+            <a href="Certifications.html">Robotic Process Automation</a>
+            <a href="Certifications.html">OpenSpan</a>
+        </div>
+
+        <div class="dropdown-footer">
+            <a href="Certifications.html">
+                View all certifications →
+            </a>
+        </div>
+
+    </div>
+</li>-->
     <a href="#programs">Master Programs</a>
     <a href="#why-us">Why Greens</a>
     <a href="#process">How it works</a>
 
-    <button class="theme-toggle" id="themeToggle" type="button" style="display:none">
+    <button class="theme-toggle" id="themeToggle" type="button">
         <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
         <span id="themeText">Dark</span>
     </button>
@@ -122,61 +187,46 @@ learner.<span class="blue">build</span>();</code></pre>
           <p>Choose a focused track, practice with real scenarios and learn from experienced trainers.</p>
         </div>
 
-        <div class="course-grid">
-          <article class="course-card featured reveal">
-            <div class="course-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
-            <span class="course-tag">Trending</span>
-            <h3>Data Science & AI</h3>
-            <p>Python, machine learning, deep learning, NLP and practical projects.</p>
-            <div class="course-meta"><span>60+ hrs</span><span>Projects</span><span>Mentor</span></div>
-            <a href="#contact">View program <i class="bi bi-arrow-right"></i></a>
-          </article>
+		<div class="course-grid">
 
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
-            <span class="course-tag">Career Track</span>
-            <h3>Cloud & DevOps</h3>
-            <p>AWS, Azure, Docker, Kubernetes, CI/CD and infrastructure workflows.</p>
-            <div class="course-meta"><span>Live labs</span><span>Projects</span><span>Mentor</span></div>
-            <a href="#contact">View program <i class="bi bi-arrow-right"></i></a>
-          </article>
+	  <article class="course-card featured reveal">
+		<div class="course-icon"><i class="bi bi-cloud-arrow-up-fill"></i></div>
+		<span class="course-tag">Trending</span>
+		<h3>AWS Training</h3>
+		<p>Cloud Practitioner, Solutions Architect, Developer, SysOps and DevOps tracks with certification guidance.</p>
+		<div class="course-meta"><span>40+ hrs</span><span>2 Live projects</span><span>Certification</span></div>
+		<a href="aws-training.html" target="_blank" rel="noopener">View program <i class="bi bi-arrow-right"></i></a>
+	  </article>
 
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-braces"></i></div>
-            <span class="course-tag">Developer</span>
-            <h3>Full Stack Development</h3>
-            <p>Frontend, backend, databases, APIs and deployment in one practical path.</p>
-            <div class="course-meta"><span>Hands-on</span><span>Projects</span><span>Career</span></div>
-            <a href="#contact">View program <i class="bi bi-arrow-right"></i></a>
-          </article>
+	  <article class="course-card featured reveal">
+		<div class="course-icon"><i class="bi bi-infinity"></i></div>
+		<span class="course-tag">Career Track</span>
+		<h3>DevOps Engineer</h3>
+		<p>CI/CD, Jenkins, Docker, Kubernetes, Ansible and cloud automation workflows.</p>
+		<div class="course-meta"><span>Live labs</span><span>Projects</span><span>Certification</span></div>
+		<a href="devops-training.html" target="_blank" rel="noopener">View program <i class="bi bi-arrow-right"></i></a>
+	  </article>
 
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-shield-check"></i></div>
-            <span class="course-tag">Testing</span>
-            <h3>Software Testing</h3>
-            <p>Manual testing, Selenium, API testing, automation and test frameworks.</p>
-            <div class="course-meta"><span>Labs</span><span>Case studies</span><span>Mock interviews</span></div>
-            <a href="#contact">View program <i class="bi bi-arrow-right"></i></a>
-          </article>
+	  <article class="course-card featured reveal">
+		<div class="course-icon"><i class="bi bi-bar-chart-line-fill"></i></div>
+		<span class="course-tag">Analytics</span>
+		<h3>Data Analytics</h3>
+		<p>SQL, Excel, Power BI, data visualization and business-focused analytics projects.</p>
+		<div class="course-meta"><span>Practical</span><span>Dashboards</span><span>Projects</span></div>
+		<a href="data-analytics-training.html" target="_blank" rel="noopener">View program <i class="bi bi-arrow-right"></i></a>
+	  </article>
 
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-database-fill"></i></div>
-            <span class="course-tag">Analytics</span>
-            <h3>Data Analytics</h3>
-            <p>SQL, Excel, Power BI, visualization and business-focused analytics.</p>
-            <div class="course-meta"><span>Practical</span><span>Dashboards</span><span>Projects</span></div>
-            <a href="#contact">View program <i class="bi bi-arrow-right"></i></a>
-          </article>
+	  <article class="course-card featured reveal">
+		<div class="course-icon"><i class="bi bi-cpu-fill"></i></div>
+		<span class="course-tag">Trending</span>
+		<h3>Artificial Intelligence</h3>
+		<p>Machine learning, deep learning, neural networks and real-world AI applications.</p>
+		<div class="course-meta"><span>Hands-on</span><span>Projects</span><span>Mentor</span></div>
+		<a href="ai-training.html" target="_blank" rel="noopener">View program <i class="bi bi-arrow-right"></i></a>
+	  </article>
 
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-phone-fill"></i></div>
-            <span class="course-tag">Development</span>
-            <h3>Mobile & Modern Web</h3>
-            <p>Modern web and mobile application development with current frameworks.</p>
-            <div class="course-meta"><span>Code labs</span><span>Projects</span><span>Mentor</span></div>
-            <a href="#contact">View program <i class="bi bi-arrow-right"></i></a>
-          </article>
-        </div>
+	</div>        
+
       </div>
     </section>
 
@@ -235,6 +285,27 @@ learner.<span class="blue">build</span>();</code></pre>
           <div class="step reveal"><span>01</span><i class="bi bi-chat-square-text"></i><h3>Choose your track</h3><p>Talk to an advisor and select a course based on your goals.</p></div>
           <div class="step reveal"><span>02</span><i class="bi bi-play-btn"></i><h3>Learn by doing</h3><p>Attend instructor-led sessions and work through practical labs.</p></div>
           <div class="step reveal"><span>03</span><i class="bi bi-rocket-takeoff"></i><h3>Build & prepare</h3><p>Complete projects, mock interviews and career preparation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section programs why-best" id="why-best">
+      <div class="container">
+        <div class="center-head reveal">
+          <span class="kicker">Why choose Greens</span>
+          <h2>Why Greens Technology is the best software training institute in Chennai</h2>
+          <p class="why-best-intro">Many IT training institutes have opened in Chennai, which makes choosing one hard. Our curriculum covers every aspect of employability, and we keep supporting you with placements at top IT companies, MNCs and CMM-level firms until you land a role.</p>
+        </div>
+
+        <div class="steps four">
+          <div class="step reveal"><i class="bi bi-people-fill"></i><h3>65,000+ students placed</h3><p>Over 65,000 students placed in our 20 years in the industry.</p></div>
+          <div class="step reveal"><i class="bi bi-briefcase-fill"></i><h3>Placement assistance</h3><p>Continued job support until every student is successfully placed.</p></div>
+          <div class="step reveal"><i class="bi bi-pc-display"></i><h3>Individual lab support</h3><p>Superior lab facilities that students can use individually and independently.</p></div>
+          <div class="step reveal"><i class="bi bi-person-workspace"></i><h3>Trainers from the industry</h3><p>Trainers who work with leading IT companies in Chennai.</p></div>
+          <div class="step reveal"><i class="bi bi-clock-history"></i><h3>Flexible timing</h3><p>Tell us when you are available and we fit the classes around you.</p></div>
+          <div class="step reveal"><i class="bi bi-chat-square-text"></i><h3>Interview preparation</h3><p>Resume preparation, interview skills and soft skills, beyond your core subject.</p></div>
+          <div class="step reveal"><i class="bi bi-tools"></i><h3>Hands-on training</h3><p>On-the-job style sessions that help you handle real-time IT scenarios.</p></div>
+          <div class="step reveal"><i class="bi bi-wallet2"></i><h3>Affordable course fees</h3><p>Quality training at a price that suits learners at every level.</p></div>
         </div>
       </div>
     </section>
