@@ -138,3 +138,10 @@ body.dark-mode .theme-toggle:hover {
 .course-grid.four{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1100px){.course-grid.four{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.course-grid.four{grid-template-columns:1fr}}
+
+
+a.course-card{display:block;color:inherit;cursor:pointer}
+.course-card .card-link{position:absolute;bottom:25px;right:27px;color:var(--accent);font-size:12px;font-weight:700}
+.course-card .card-link i{display:inline-block;transition:transform .25s}
+a.course-card:hover .card-link i{transform:translateX(4px)}
+a.course-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
