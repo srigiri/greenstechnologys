@@ -120,7 +120,6 @@ body.dark-mode .theme-toggle:hover {
 /* Mobile */
 @media (max-width: 900px) {
     .site-logo img {
-        width: 145px;
         max-height: 50px;
     }
 
