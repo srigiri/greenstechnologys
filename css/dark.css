@@ -97,7 +97,6 @@ body.dark-mode .theme-toggle:hover {
 
 .site-logo img {
     display: block;
-    width: 165px;
     height: auto;
     max-height: 58px;
     object-fit: contain;
@@ -149,3 +148,12 @@ a.course-card{display:block;color:inherit;cursor:pointer}
 .course-card .card-link i{display:inline-block;transition:transform .25s}
 a.course-card:hover .card-link i{transform:translateX(4px)}
 a.course-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Footer logo */
+.footer .footer-logo{display:inline-block;line-height:0;margin:0 0 16px}
+.footer .footer-logo img{display:block;width:120px;height:auto;border-radius:12px}
+@media(max-width:600px){.footer .footer-logo img{width:105px}}
+
+/* Header logo: rounded corners, left aligned */
+.site-header .site-logo{justify-content:flex-start;margin-right:auto}
+.site-header .site-logo img{border-radius:12px;object-position:left center}

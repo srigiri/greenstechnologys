@@ -1,3 +1,9 @@
+/* =========================================================
+   ELEGANT LIGHT THEME
+   Compatible with the existing HTML structure
+   Fonts: Plus Jakarta Sans + Manrope
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
@@ -1677,7 +1683,6 @@ body.dark-mode .theme-toggle:hover {
 
 .site-logo img {
     display: block;
-    width: 165px;
     height: auto;
     max-height: 58px;
     object-fit: contain;
@@ -1715,6 +1720,7 @@ body.dark-mode .theme-toggle:hover {
         width: 135px;
     }
 }
+
 .course-grid.four{grid-template-columns:repeat(4,1fr)}
 @media(max-width:1100px){.course-grid.four{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.course-grid.four{grid-template-columns:1fr}}
@@ -1729,3 +1735,12 @@ a.course-card{display:block;color:inherit;cursor:pointer}
 .course-card .card-link i{display:inline-block;transition:transform .25s}
 a.course-card:hover .card-link i{transform:translateX(4px)}
 a.course-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Footer logo */
+.footer .footer-logo{display:inline-block;line-height:0;margin:0 0 16px}
+.footer .footer-logo img{display:block;width:120px;height:auto;border-radius:12px}
+@media(max-width:600px){.footer .footer-logo img{width:105px}}
+
+/* Header logo: rounded corners, left aligned */
+.site-header .site-logo{justify-content:flex-start;margin-right:auto}
+.site-header .site-logo img{border-radius:12px;object-position:left center}
