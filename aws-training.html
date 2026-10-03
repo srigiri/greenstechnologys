@@ -43,20 +43,32 @@
       </button>
 
       <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html#courses">Courses</a>
-        <a href="#tracks">AWS tracks</a>
-        <a href="#trainer">Trainer</a>
-        <a href="#faq">FAQs</a>
-
-        <button class="theme-toggle" id="themeToggle" type="button">
-          <i class="bi bi-moon-stars-fill" id="themeIcon"></i>
-          <span id="themeText">Dark</span>
-        </button>
-
-        <a href="#contact" class="nav-cta">Talk to an advisor <i class="bi bi-arrow-right"></i></a>
+        <div class="nav-dd">
+          <a href="courses.html">Courses <i class="bi bi-chevron-down"></i></a>
+          <div class="nav-dd-menu">
+            <a href="aws-training.html" aria-current="page">AWS Training</a>
+            <a href="devops-training.html">DevOps Engineer</a>
+            <a href="data-analytics-training.html">Data Analytics</a>
+            <a href="ai-training.html">Artificial Intelligence</a>
+            <a href="courses.html" class="nav-dd-all">View all courses <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="placements.html">Placements</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" id="themeToggle" type="button"><i class="bi bi-moon-stars-fill" id="themeIcon"></i><span id="themeText">Dark</span></button>
+        <a href="contact.html" class="nav-cta">Talk to an advisor <i class="bi bi-arrow-right"></i></a>
       </nav>
     </div>
   </header>
+
+  <div class="page-strip" aria-label="On this page">
+    <div class="container page-strip-inner">
+      <div class="page-strip-links"><span>On this page</span><a href="#tracks">AWS tracks</a><a href="#trainer">Trainer</a><a href="#faq">FAQs</a></div>
+      <a class="page-strip-cta" href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+
 
   <main>
     <section class="hero">

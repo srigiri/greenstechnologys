@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about Greens Technology, a software training institute in Coimbatore with live projects, certification guidance and placement support.">
+  <title>About Us | Greens Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/dark.css" id="darkTheme">
+  <link rel="stylesheet" href="css/light.css" id="lightTheme" disabled>
+  <style>
+    .page-hero{min-height:auto}
+    .page-hero .hero-inner{grid-template-columns:1fr;padding:70px 0}
+    .page-hero h1{font-size:clamp(40px,5vw,64px)}
+    .info-grid{display:grid;gap:14px}
+    .info-card{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+    .info-card i{color:var(--accent);font-size:22px}
+    .info-card h3{margin:0 0 4px;font-size:18px;letter-spacing:-.5px}
+    .info-card p,.info-card a{margin:0;color:var(--muted);font-size:14px;display:block}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="announcement">
+    <div class="container announcement-inner">
+      <span><i class="bi bi-stars"></i> Free demo class available for all batches</span>
+      <a href="contact.html">Book a free demo <i class="bi bi-arrow-up-right"></i></a>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="index.html" class="site-logo" aria-label="Greens Technology home">
+        <img src="assets/greenstechnologys_logo.png" alt="Greens Technology">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="bi bi-list"></i></button>
+      <nav class="nav" aria-label="Primary navigation">
+        <div class="nav-dd">
+          <a href="courses.html">Courses <i class="bi bi-chevron-down"></i></a>
+          <div class="nav-dd-menu">
+            <a href="aws-training.html">AWS Training</a>
+            <a href="devops-training.html">DevOps Engineer</a>
+            <a href="data-analytics-training.html">Data Analytics</a>
+            <a href="ai-training.html">Artificial Intelligence</a>
+            <a href="courses.html" class="nav-dd-all">View all courses <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="placements.html">Placements</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" id="themeToggle" type="button"><i class="bi bi-moon-stars-fill" id="themeIcon"></i><span id="themeText">Dark</span></button>
+        <a href="contact.html" class="nav-cta">Talk to an advisor <i class="bi bi-arrow-right"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero page-hero">
+      <div class="hero-grid"></div>
+      <div class="container hero-inner">
+        <div class="reveal">
+          <div class="eyebrow"><span class="pulse"></span> About Greens Technology</div>
+          <h1>Practical training that gets you <em>job-ready.</em></h1>
+          <p class="hero-text">We teach software skills the way they are used at work: hands-on labs, live projects and mentors who have done the job.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="logo-strip"><div class="container"><div class="trust-row" style="margin-top:0">
+      <div><strong>15K+</strong><span>Learners trained</span></div>
+      <div><strong>4.9</strong><span>Average rating</span></div>
+      <div><strong>200+</strong><span>Software courses</span></div>
+      <div><strong>English &amp; Tamil</strong><span>Classes available</span></div>
+    </div></div></section>
+
+    <section class="why section">
+      <div class="container why-grid">
+        <div class="why-copy reveal">
+          <span class="kicker">Our approach</span>
+          <h2>Learn by <span>doing.</span></h2>
+          <p>Every course mixes concepts with lab work, assignments and real-world projects, so you finish with something to show in interviews.</p>
+        </div>
+        <div class="benefits">
+          <div class="benefit reveal"><span>01</span><div><i class="bi bi-person-workspace"></i><h3>Trainers from industry</h3><p>Mentors with years of experience in the tools they teach.</p></div></div>
+          <div class="benefit reveal"><span>02</span><div><i class="bi bi-kanban"></i><h3>Live projects</h3><p>Apply each module to realistic scenarios before you go for interviews.</p></div></div>
+          <div class="benefit reveal"><span>03</span><div><i class="bi bi-award"></i><h3>Certification guidance</h3><p>Prepare for vendor certifications such as AWS, Docker and Kubernetes.</p></div></div>
+          <div class="benefit reveal"><span>04</span><div><i class="bi bi-laptop"></i><h3>Flexible modes</h3><p>Online, classroom, one-to-one and corporate training, with weekend batches.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="center-head reveal"><span class="kicker">How it works</span><h2>From first class to first job.</h2></div>
+        <div class="steps">
+          <div class="step reveal"><span>01</span><i class="bi bi-mortarboard"></i><h3>Learn</h3><p>Instructor-led sessions with recordings and practical assignments.</p></div>
+          <div class="step reveal"><span>02</span><i class="bi bi-hammer"></i><h3>Build</h3><p>Work on live projects and prepare for certification.</p></div>
+          <div class="step reveal"><span>03</span><i class="bi bi-briefcase"></i><h3>Get placed</h3><p>Resume help, mock interviews and job support from our placement team.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-grid">
+        <div>
+          <span class="kicker light">Start with a free demo</span>
+          <h2>Visit us or<br>book a free demo.</h2>
+          <p>Talk to a course advisor and pick a batch that fits your schedule.</p>
+        </div>
+        <div><a class="btn btn-light" href="contact.html">Talk to an advisor <i class="bi bi-arrow-right"></i></a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo" aria-label="Greens Technology home"><img src="assets/greenstechnologys_logo.png" alt="Greens Technology"></a>
+        <p>Practical software training for students, professionals and career switchers.</p>
+      </div>
+      <div><h4>Explore</h4><a href="courses.html">Courses</a><a href="about.html">About</a><a href="placements.html">Placements</a></div>
+      <div><h4>Courses</h4><a href="aws-training.html">AWS</a><a href="devops-training.html">DevOps</a><a href="ai-training.html">Artificial Intelligence</a><a href="data-analytics-training.html">Data Analytics</a></div>
+      <div><h4>Contact</h4><p>Coimbatore, Tamil Nadu</p><a href="tel:+918939915577">+91 89399 15577</a><a href="mailto:contact@greenstechnologys.com">contact@greenstechnologys.com</a></div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; <span id="year"></span> Greens Technology. All rights reserved.</span><span>Training &middot; Projects &middot; Career Support</span></div>
+  </footer>
+
+  <button class="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <script src="js/app.js"></script>
+</body>
+</html>

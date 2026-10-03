@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Placement support at Greens Technology: resume building, mock interviews, soft-skills training and job assistance.">
+  <title>Placements | Greens Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/dark.css" id="darkTheme">
+  <link rel="stylesheet" href="css/light.css" id="lightTheme" disabled>
+  <style>
+    .page-hero{min-height:auto}
+    .page-hero .hero-inner{grid-template-columns:1fr;padding:70px 0}
+    .page-hero h1{font-size:clamp(40px,5vw,64px)}
+    .info-grid{display:grid;gap:14px}
+    .info-card{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+    .info-card i{color:var(--accent);font-size:22px}
+    .info-card h3{margin:0 0 4px;font-size:18px;letter-spacing:-.5px}
+    .info-card p,.info-card a{margin:0;color:var(--muted);font-size:14px;display:block}
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:start}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="announcement">
+    <div class="container announcement-inner">
+      <span><i class="bi bi-stars"></i> Free demo class available for all batches</span>
+      <a href="contact.html">Book a free demo <i class="bi bi-arrow-up-right"></i></a>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="index.html" class="site-logo" aria-label="Greens Technology home">
+        <img src="assets/greenstechnologys_logo.png" alt="Greens Technology">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="bi bi-list"></i></button>
+      <nav class="nav" aria-label="Primary navigation">
+        <div class="nav-dd">
+          <a href="courses.html">Courses <i class="bi bi-chevron-down"></i></a>
+          <div class="nav-dd-menu">
+            <a href="aws-training.html">AWS Training</a>
+            <a href="devops-training.html">DevOps Engineer</a>
+            <a href="data-analytics-training.html">Data Analytics</a>
+            <a href="ai-training.html">Artificial Intelligence</a>
+            <a href="courses.html" class="nav-dd-all">View all courses <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <a href="about.html">About</a>
+        <a href="placements.html" aria-current="page">Placements</a>
+        <a href="contact.html">Contact</a>
+        <button class="theme-toggle" id="themeToggle" type="button"><i class="bi bi-moon-stars-fill" id="themeIcon"></i><span id="themeText">Dark</span></button>
+        <a href="contact.html" class="nav-cta">Talk to an advisor <i class="bi bi-arrow-right"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero page-hero">
+      <div class="hero-grid"></div>
+      <div class="container hero-inner">
+        <div class="reveal">
+          <div class="eyebrow"><span class="pulse"></span> Career support</div>
+          <h1>Training that ends with a <em>job search plan.</em></h1>
+          <p class="hero-text">A dedicated placement team works with you on your resume, interview skills and job applications.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="center-head reveal"><span class="kicker">Placement process</span><h2>How we help you get hired.</h2></div>
+        <div class="steps">
+          <div class="step reveal"><span>01</span><i class="bi bi-file-earmark-person"></i><h3>Resume &amp; profile</h3><p>Build a resume that highlights your skills and projects.</p></div>
+          <div class="step reveal"><span>02</span><i class="bi bi-chat-square-text"></i><h3>Mock interviews</h3><p>Practise technical and HR rounds with feedback after each one.</p></div>
+          <div class="step reveal"><span>03</span><i class="bi bi-people"></i><h3>Soft skills</h3><p>Improve communication and presentation skills for interviews.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add hiring-partner logos and placed-student stories here once you have the real list. -->
+
+    <section class="why section">
+      <div class="container why-grid">
+        <div class="why-copy reveal">
+          <span class="kicker">Before you apply</span>
+          <h2>What <span>you bring.</span></h2>
+          <p>Placement support works best when you attend classes, complete assignments and finish the live projects.</p>
+        </div>
+        <div class="benefits">
+          <div class="benefit reveal"><span>01</span><div><i class="bi bi-journal-check"></i><h3>Complete the assignments</h3><p>Practical assignments after each class build the skills interviewers test.</p></div></div>
+          <div class="benefit reveal"><span>02</span><div><i class="bi bi-kanban"></i><h3>Finish a live project</h3><p>A real project gives you something concrete to discuss in interviews.</p></div></div>
+          <div class="benefit reveal"><span>03</span><div><i class="bi bi-award"></i><h3>Pursue certification</h3><p>A vendor certification strengthens your profile.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-grid">
+        <div>
+          <span class="kicker light">Start with a free demo</span>
+          <h2>Start your<br>career journey.</h2>
+          <p>Book a free demo and learn how our placement team can help you.</p>
+        </div>
+        <div><a class="btn btn-light" href="contact.html">Talk to an advisor <i class="bi bi-arrow-right"></i></a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="footer-logo" aria-label="Greens Technology home"><img src="assets/greenstechnologys_logo.png" alt="Greens Technology"></a>
+        <p>Practical software training for students, professionals and career switchers.</p>
+      </div>
+      <div><h4>Explore</h4><a href="courses.html">Courses</a><a href="about.html">About</a><a href="placements.html">Placements</a></div>
+      <div><h4>Courses</h4><a href="aws-training.html">AWS</a><a href="devops-training.html">DevOps</a><a href="ai-training.html">Artificial Intelligence</a><a href="data-analytics-training.html">Data Analytics</a></div>
+      <div><h4>Contact</h4><p>Coimbatore, Tamil Nadu</p><a href="tel:+918939915577">+91 89399 15577</a><a href="mailto:contact@greenstechnologys.com">contact@greenstechnologys.com</a></div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; <span id="year"></span> Greens Technology. All rights reserved.</span><span>Training &middot; Projects &middot; Career Support</span></div>
+  </footer>
+
+  <button class="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+  <script src="js/app.js"></script>
+</body>
+</html>
