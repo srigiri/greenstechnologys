@@ -22,6 +22,46 @@
     .faq summary:after{content:"+";color:var(--accent);font-size:22px}
     .faq details[open] summary:after{content:"\2212"}
     .faq details p{color:var(--muted);font-size:14px;margin:12px 0 0}
+
+    /* Learning path + track details */
+    .stages{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .stage{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:20px}
+    .stage span{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;font-weight:800;color:var(--accent)}
+    .stage h3{margin:6px 0;font-size:19px;letter-spacing:-.5px}
+    .stage p{margin:0;color:var(--muted);font-size:13px}
+    .path-next{margin:22px 0 0;color:var(--muted);font-size:14px}
+    .path-next i,.path-next a{color:var(--accent)}
+    .track{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);margin-bottom:14px;overflow:hidden}
+    .track>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px}
+    .track>summary::-webkit-details-marker{display:none}
+    .track>summary:after{content:"+";color:var(--accent);font-size:26px;margin-left:auto}
+    .track[open]>summary:after{content:"\2212"}
+    .track-title h3{margin:4px 0 0;font-size:24px;letter-spacing:-.8px}
+    .track-body{padding:0 26px 26px;border-top:1px solid var(--line)}
+    .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:22px 0}
+    .fact h4,.modules h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent)}
+    .fact p{margin:0;font-size:14px;color:var(--muted)}
+    .modules details{border-top:1px solid var(--line);padding:14px 0}
+    .modules summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:12px}
+    .modules summary::-webkit-details-marker{display:none}
+    .modules summary:after{content:"+";margin-left:auto;color:var(--accent)}
+    .modules details[open] summary:after{content:"\2212"}
+    .mod-n{color:var(--muted);font:600 12px "Space Grotesk";padding-top:3px}
+    .modules p{margin:10px 0 0 36px;color:var(--muted);font-size:14px}
+    @media(max-width:900px){.stages{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr}.track>summary{flex-wrap:wrap}}
+    @media(max-width:600px){.stages{grid-template-columns:1fr}}
+
+    /* Career paths */
+    .career{min-height:0;padding:28px}
+    .career h3{margin:6px 0 8px}
+    .career h4{margin:18px 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent)}
+    .career .path-who{min-height:0;font-size:14px}
+    .path-steps{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--line)}
+    .path-steps li{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
+    .path-steps li span{flex:none;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);width:58px}
+    .path-steps li em{margin-left:auto;font-style:normal;color:var(--muted);font-size:12px;white-space:nowrap}
+    .career .path-total{margin:12px 0 0;min-height:0;font-size:14px;color:var(--text)}
+    .career .path-opt,.career .path-note{margin:8px 0 0;min-height:0;font-size:13px}
   </style>
 </head>
 <body>
@@ -47,9 +87,10 @@
           <a href="courses.html">Courses <i class="bi bi-chevron-down"></i></a>
           <div class="nav-dd-menu">
             <a href="aws-training.html">AWS Training</a>
-            <a href="devops-training.html" aria-current="page">DevOps Engineer</a>
+            <a href="devops-training.html" aria-current="page">DevOps Training</a>
             <a href="data-analytics-training.html">Data Analytics</a>
             <a href="ai-training.html">Artificial Intelligence</a>
+            <a href="cloud-devops-master-program.html">Cloud and DevOps Master Program</a>
             <a href="courses.html" class="nav-dd-all">View all courses <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
@@ -64,7 +105,7 @@
 
   <div class="page-strip" aria-label="On this page">
     <div class="container page-strip-inner">
-      <div class="page-strip-links"><span>On this page</span><a href="#tracks">DevOps tracks</a><a href="#trainer">Trainer</a><a href="#faq">FAQs</a></div>
+      <div class="page-strip-links"><span>On this page</span><a href="#tracks">Learning path</a><a href="#curriculum">Curriculum</a><a href="#paths">Career paths</a><a href="#certifications">Certifications</a><a href="#trainer">Trainer</a><a href="#faq">FAQs</a></div>
       <a class="page-strip-cta" href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
     </div>
   </div>
@@ -78,8 +119,8 @@
           <div class="eyebrow"><span class="pulse"></span> Certification and placement program</div>
           <h1>DevOps training in <em>Coimbatore</em></h1>
           <p class="hero-text">
-            Learn DevOps from foundation to practitioner level. Master Git, Jenkins, Docker, Kubernetes,
-            Ansible and more on real-world projects, with classes in English and Tamil.
+            Learn DevOps from Linux basics to production. Master Git, GitHub Actions, Docker, Kubernetes,
+            Terraform, AWS and monitoring on real-world projects, with classes in English and Tamil.
           </p>
 
           <div class="hero-actions">
@@ -100,11 +141,11 @@
           <div class="code-card">
             <div class="window-bar"><span></span><span></span><span></span><small>pipeline.js</small></div>
             <pre><code><span class="purple">const</span> pipeline = [
-  <span class="green">'git commit'</span>,
-  <span class="green">'jenkins build'</span>,
+  <span class="green">'git push'</span>,
+  <span class="green">'github actions build'</span>,
   <span class="green">'docker image'</span>,
-  <span class="green">'kubernetes deploy'</span>,
-  <span class="green">'monitor and alert'</span>
+  <span class="green">'helm deploy to kubernetes'</span>,
+  <span class="green">'prometheus and grafana'</span>
 ];
 
 team.<span class="blue">ship</span>(pipeline);</code></pre>
@@ -122,7 +163,7 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
       <div class="container">
         <span>Tools you will work with</span>
         <div class="tech-list">
-          <b>Git</b><b>Jenkins</b><b>Maven</b><b>Docker</b><b>Kubernetes</b><b>Ansible</b><b>Terraform</b><b>Puppet</b><b>Chef</b><b>Nagios</b><b>Splunk</b><b>ELK</b>
+          <b>Linux</b><b>Git</b><b>GitHub Actions</b><b>Jenkins</b><b>Docker</b><b>Kubernetes</b><b>Helm</b><b>Terraform</b><b>Ansible</b><b>AWS</b><b>Prometheus</b><b>Grafana</b><b>ELK</b>
         </div>
       </div>
     </section>
@@ -131,94 +172,258 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="kicker">DevOps course content</span>
-            <h2>Pick the DevOps path that fits your role.</h2>
+            <span class="kicker">DevOps learning path</span>
+            <h2>From Linux basics to a production-grade capstone.</h2>
           </div>
-          <p>Start with DevOps foundations, then add the tools your team uses: CI/CD, containers, configuration management, infrastructure as code and monitoring.</p>
+          <p>Nine tracks in five stages. Each track below lists its duration, prerequisites, project and curriculum.</p>
+        </div>
+
+        <div class="stages reveal"><div class="stage"><span>Stage 1</span><h3>Foundations</h3><p>Linux, Shell, Git</p></div><div class="stage"><span>Stage 2</span><h3>Build and ship</h3><p>CI/CD, Docker</p></div><div class="stage"><span>Stage 3</span><h3>Run at scale</h3><p>Kubernetes, Helm, Terraform, AWS</p></div><div class="stage"><span>Stage 4</span><h3>Operate and secure</h3><p>Prometheus, Grafana, DevSecOps</p></div><div class="stage"><span>Stage 5</span><h3>Capstone</h3><p>End-to-end project</p></div></div>
+        <p class="path-next reveal"><i class="bi bi-arrow-return-right"></i> The full program is 60+ hrs with 2 live projects. You can also take individual tracks if you already know the earlier ones.</p>
+
+        <div class="section-head reveal" id="curriculum" style="margin-top:70px">
+          <div>
+            <span class="kicker">Track details</span>
+            <h2>Duration, prerequisites, projects and curriculum.</h2>
+          </div>
+          <p>Open a track to see what you need, what you will build and the modules covered.</p>
+        </div>
+
+        <details class="track reveal" open>
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 1 &middot; Foundations</span><h3>Linux, Shell and Git</h3></div>
+            <div class="course-meta"><span>8 hrs</span><span>4 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">8 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>None. No prior IT experience needed.</p></div>
+              <div class="fact"><h4>Project</h4><p>Write a shell script that automates a server health check and backup, and manage it in a GitHub repository using branches and pull requests.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> DevOps fundamentals</summary><p>DevOps culture, the delivery lifecycle, Agile, and how CI/CD fits into a team.</p></details>
+            <details><summary><span class="mod-n">02</span> Linux essentials</summary><p>File system, users and permissions, processes, package managers, systemd, SSH and basic networking (IP, DNS, ports, HTTP).</p></details>
+            <details><summary><span class="mod-n">03</span> Shell scripting</summary><p>Variables, conditions, loops, functions, error handling, cron jobs and automating routine admin tasks.</p></details>
+            <details><summary><span class="mod-n">04</span> Git and GitHub</summary><p>Commits, branching, merging, pull requests, code review and GitHub repository workflows.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 2 &middot; Build and ship</span><h3>CI/CD with GitHub Actions and Jenkins</h3></div>
+            <div class="course-meta"><span>8 hrs</span><span>5 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">8 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Linux and Git basics (Track 1 or equivalent).</p></div>
+              <div class="fact"><h4>Project</h4><p>Live project 1: a pipeline that builds, tests, scans and packages an application on every push, with approvals before release.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> CI/CD concepts and build tools</summary><p>Pipelines, artifacts, versioning and building Java or Node projects with Maven or npm.</p></details>
+            <details><summary><span class="mod-n">02</span> GitHub Actions</summary><p>Workflows, events, runners, secrets, matrix builds, caching and reusable workflows.</p></details>
+            <details><summary><span class="mod-n">03</span> Jenkins</summary><p>Installation, jobs, Jenkinsfile pipelines, agents, plugins and credentials.</p></details>
+            <details><summary><span class="mod-n">04</span> Quality gates</summary><p>Unit tests, code-quality analysis with SonarQube and failing builds on quality rules.</p></details>
+            <details><summary><span class="mod-n">05</span> Release strategies</summary><p>Environments, approvals, rolling and blue-green deployments, and rollbacks.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 3 &middot; Build and ship</span><h3>Containers with Docker</h3></div>
+            <div class="course-meta"><span>6 hrs</span><span>4 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">6 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Linux and Git basics (Track 1 or equivalent).</p></div>
+              <div class="fact"><h4>Project</h4><p>Containerize a multi-service application with Docker Compose and publish its images to a registry.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Container fundamentals</summary><p>Images, containers, layers and how containers differ from virtual machines.</p></details>
+            <details><summary><span class="mod-n">02</span> Dockerfiles and image optimization</summary><p>Writing Dockerfiles, multi-stage builds, smaller and safer images.</p></details>
+            <details><summary><span class="mod-n">03</span> Networking and storage</summary><p>Bridge networks, port mapping, volumes and bind mounts.</p></details>
+            <details><summary><span class="mod-n">04</span> Docker Compose and registries</summary><p>Multi-container apps, environment configuration, tagging and pushing to a registry.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 4 &middot; Run at scale</span><h3>Kubernetes and Helm</h3></div>
+            <div class="course-meta"><span>10 hrs</span><span>5 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">10 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Docker (Track 3 or equivalent).</p></div>
+              <div class="fact"><h4>Project</h4><p>Deploy an application to a Kubernetes cluster with Helm, with ingress, autoscaling, health probes and rolling updates.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Architecture and core objects</summary><p>Control plane, nodes, Pods, Deployments, ReplicaSets and Services.</p></details>
+            <details><summary><span class="mod-n">02</span> Configuration and storage</summary><p>ConfigMaps, Secrets, volumes, PersistentVolumes and claims.</p></details>
+            <details><summary><span class="mod-n">03</span> Networking and scaling</summary><p>Ingress, resource requests and limits, probes and the Horizontal Pod Autoscaler.</p></details>
+            <details><summary><span class="mod-n">04</span> Helm</summary><p>Charts, values files, releases, upgrades, rollbacks and chart repositories.</p></details>
+            <details><summary><span class="mod-n">05</span> Cluster operations and exam practice</summary><p>RBAC, upgrades, troubleshooting and timed practice for CKA and CKAD.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 5 &middot; Run at scale</span><h3>Infrastructure as Code: Terraform and Ansible</h3></div>
+            <div class="course-meta"><span>8 hrs</span><span>5 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">8 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Linux basics and cloud basics (AWS Cloud Practitioner level).</p></div>
+              <div class="fact"><h4>Project</h4><p>Provision a cloud network and servers with Terraform, then configure them with Ansible playbooks.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> IaC concepts</summary><p>Declarative infrastructure, version control for infrastructure and drift.</p></details>
+            <details><summary><span class="mod-n">02</span> Terraform fundamentals</summary><p>Providers, resources, variables, outputs, data sources and state.</p></details>
+            <details><summary><span class="mod-n">03</span> Terraform in practice</summary><p>Modules, remote state, workspaces and running Terraform from a CI pipeline.</p></details>
+            <details><summary><span class="mod-n">04</span> Ansible</summary><p>Inventories, playbooks, roles, handlers and idempotent configuration.</p></details>
+            <details><summary><span class="mod-n">05</span> Exam practice</summary><p>Practice questions and a mock test for the Terraform Associate certification.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 6 &middot; Run at scale</span><h3>AWS for DevOps</h3></div>
+            <div class="course-meta"><span>8 hrs</span><span>5 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">8 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Linux and Git basics, and AWS Cloud Practitioner level knowledge.</p></div>
+              <div class="fact"><h4>Project</h4><p>Deploy an application on AWS behind a load balancer using IAM roles, containers and an automated release pipeline.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> AWS core services for DevOps</summary><p>IAM, VPC, EC2, S3 and security groups.</p></details>
+            <details><summary><span class="mod-n">02</span> Containers and compute on AWS</summary><p>ECR, ECS, EKS and an introduction to Lambda.</p></details>
+            <details><summary><span class="mod-n">03</span> Delivery on AWS</summary><p>CodeBuild, CodePipeline, CodeDeploy and an introduction to CloudFormation.</p></details>
+            <details><summary><span class="mod-n">04</span> Operations and security</summary><p>CloudWatch, CloudTrail, Secrets Manager and cost awareness.</p></details>
+            <details><summary><span class="mod-n">05</span> Path to AWS DevOps Professional</summary><p>Exam domains overview and how to prepare after an AWS Associate certification.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 7 &middot; Operate and secure</span><h3>Observability: Prometheus, Grafana and ELK</h3></div>
+            <div class="course-meta"><span>6 hrs</span><span>5 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">6 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Linux basics, plus Docker or Kubernetes basics.</p></div>
+              <div class="fact"><h4>Project</h4><p>Build dashboards and alerts for a containerized application with Prometheus, Grafana and Alertmanager, and centralize its logs with the ELK stack.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Monitoring fundamentals</summary><p>Metrics, logs and traces, SLIs, SLOs and alerting principles.</p></details>
+            <details><summary><span class="mod-n">02</span> Prometheus</summary><p>Exporters, scraping, labels and PromQL queries.</p></details>
+            <details><summary><span class="mod-n">03</span> Grafana and alerting</summary><p>Dashboards, Alertmanager rules and notification channels.</p></details>
+            <details><summary><span class="mod-n">04</span> Centralized logging</summary><p>Elasticsearch, Logstash, Kibana and log shipping with Filebeat.</p></details>
+            <details><summary><span class="mod-n">05</span> Monitoring Kubernetes</summary><p>Cluster and workload metrics, and dashboards for Pods and nodes.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 8 &middot; Operate and secure</span><h3>DevSecOps</h3></div>
+            <div class="course-meta"><span>4 hrs</span><span>4 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">4 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>CI/CD and Docker basics (Tracks 2 and 3 or equivalent).</p></div>
+              <div class="fact"><h4>Project</h4><p>Add secret scanning, dependency checks, container image scans and policy gates to a CI pipeline.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Shift-left security</summary><p>Where security fits in the pipeline and the common risks in code and containers.</p></details>
+            <details><summary><span class="mod-n">02</span> Code and dependency scanning</summary><p>Static analysis with SonarQube and dependency alerts.</p></details>
+            <details><summary><span class="mod-n">03</span> Container and IaC scanning</summary><p>Image scanning with Trivy and checking Terraform for misconfigurations.</p></details>
+            <details><summary><span class="mod-n">04</span> Secrets and policy</summary><p>Managing secrets safely and enforcing pipeline policies.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Track 9 &middot; Capstone</span><h3>End-to-end capstone project</h3></div>
+            <div class="course-meta"><span>8 hrs</span><span>5 modules</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">8 hrs</strong></p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Tracks 1 to 7 completed (Track 8 recommended).</p></div>
+              <div class="fact"><h4>Project</h4><p>Live project 2: take an application from a GitHub commit to production. GitHub Actions builds and scans the image, Terraform provisions AWS infrastructure, Helm deploys to Kubernetes, and Prometheus and Grafana monitor it.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Plan and architecture</summary><p>Choose the application, design the pipeline and agree the environments.</p></details>
+            <details><summary><span class="mod-n">02</span> Build the pipeline</summary><p>GitHub Actions workflows, tests, security scans and container images.</p></details>
+            <details><summary><span class="mod-n">03</span> Provision and deploy</summary><p>Terraform on AWS, Kubernetes with Helm, and release strategy.</p></details>
+            <details><summary><span class="mod-n">04</span> Observe and present</summary><p>Dashboards, alerts, a runbook, a demo and a review.</p></details>
+            <details><summary><span class="mod-n">05</span> Interview preparation</summary><p>Presenting your project, resume review and mock interviews.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about this track <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" id="paths">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Career paths</span>
+            <h2>Choose the roadmap that matches your goal.</h2>
+          </div>
+          <p>Every path starts with Linux, Shell and Git and ends with the capstone. The tracks in between change with the role you want.</p>
         </div>
 
         <div class="course-grid">
-          <article class="course-card featured reveal">
-            <div class="course-icon"><i class="bi bi-infinity"></i></div>
-            <span class="course-tag">Foundation</span>
-            <h3>DevOps Foundation</h3>
-            <p>Build a culture of collaboration between software engineers (Dev) and IT operations (Ops).</p>
-            <div class="course-meta"><span>Freshers welcome</span><span>Certification</span></div>
-            <a href="https://greenstech.in/devops-Course-Outline.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
+          <article class="course-card career reveal">
+            <span class="course-tag" style="margin:0">Path 1 &middot; Core</span>
+            <h3>DevOps Engineer</h3>
+            <p class="path-who">You want a general DevOps role: automating builds, releases and infrastructure for any team or cloud.</p>
+            <ol class="path-steps"><li><span>Track 1</span> Linux, Shell and Git <em>8 hrs</em></li><li><span>Track 2</span> CI/CD with GitHub Actions and Jenkins <em>8 hrs</em></li><li><span>Track 3</span> Docker <em>6 hrs</em></li><li><span>Track 4</span> Kubernetes and Helm <em>10 hrs</em></li><li><span>Track 5</span> Terraform and Ansible <em>8 hrs</em></li><li><span>Track 7</span> Prometheus, Grafana and ELK <em>6 hrs</em></li><li><span>Track 9</span> End-to-end capstone <em>8 hrs</em></li></ol>
+            <p class="path-total"><strong>7 tracks &middot; 54 hrs</strong></p>
+            <p class="path-opt">Optional add-on: Track 8 DevSecOps (4 hrs).</p>
+            <p class="path-note">Capstone focus: a complete pipeline from commit to a monitored Kubernetes deployment.</p>
+            <h4>Certifications to target</h4><div class="course-meta"><span>Terraform Associate</span><span>CKAD (optional)</span></div>
+            <h4>Typical roles</h4><div class="course-meta"><span>DevOps Engineer</span><span>Build and Release Engineer</span><span>Automation Engineer</span></div>
           </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-arrow-repeat"></i></div>
-            <span class="course-tag">CI/CD</span>
-            <h3>Continuous Integration with Jenkins</h3>
-            <p>Build and test projects continuously so changes integrate quickly and fresh builds are always available.</p>
-            <div class="course-meta"><span>Jenkins</span><span>Maven</span></div>
-            <a href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
+          <article class="course-card career reveal">
+            <span class="course-tag" style="margin:0">Path 2 &middot; Cloud</span>
+            <h3>Cloud DevOps (AWS)</h3>
+            <p class="path-who">You want to build and run delivery pipelines and infrastructure on AWS.</p>
+            <ol class="path-steps"><li><span>Track 1</span> Linux, Shell and Git <em>8 hrs</em></li><li><span>Track 2</span> CI/CD with GitHub Actions and Jenkins <em>8 hrs</em></li><li><span>Track 3</span> Docker <em>6 hrs</em></li><li><span>Track 5</span> Terraform and Ansible <em>8 hrs</em></li><li><span>Track 6</span> AWS for DevOps <em>8 hrs</em></li><li><span>Track 7</span> Prometheus, Grafana and ELK <em>6 hrs</em></li><li><span>Track 9</span> End-to-end capstone <em>8 hrs</em></li></ol>
+            <p class="path-total"><strong>7 tracks &middot; 52 hrs</strong></p>
+            <p class="path-opt">Optional add-on: Track 8 DevSecOps (4 hrs).</p>
+            <p class="path-note">Then add an AWS Associate track and work towards <a href="aws-training.html#tracks" style="color:var(--accent)">AWS DevOps Engineer &ndash; Professional</a>.</p>
+            <h4>Certifications to target</h4><div class="course-meta"><span>AWS Associate</span><span>AWS DevOps Engineer &ndash; Professional</span></div>
+            <h4>Typical roles</h4><div class="course-meta"><span>Cloud DevOps Engineer</span><span>AWS DevOps Engineer</span><span>Cloud Engineer</span></div>
           </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-box-seam-fill"></i></div>
-            <span class="course-tag">Containers</span>
-            <h3>Containerization with Docker</h3>
-            <p>Package an application with its libraries and dependencies, and deploy it as one unit.</p>
-            <div class="course-meta"><span>Docker</span><span>DCA prep</span></div>
-            <a href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-diagram-3-fill"></i></div>
-            <span class="course-tag">Orchestration</span>
-            <h3>Kubernetes</h3>
-            <p>Automate deployment, scaling and management of containerized applications.</p>
-            <div class="course-meta"><span>Kubernetes</span><span>CKA / CKAD</span></div>
-            <a href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-gear-wide-connected"></i></div>
-            <span class="course-tag">Configuration</span>
-            <h3>Ansible, Puppet, Chef and SaltStack</h3>
-            <p>Automate infrastructure provisioning, configuration management and continuous deployment.</p>
-            <div class="course-meta"><span>Automation</span><span>Hands-on labs</span></div>
-            <a href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-cloud-fill"></i></div>
-            <span class="course-tag">Infrastructure</span>
-            <h3>Terraform and OpenStack</h3>
-            <p>Build, change and version infrastructure safely using configuration files.</p>
-            <div class="course-meta"><span>IaC</span><span>Cloud</span></div>
-            <a href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-shield-check"></i></div>
-            <span class="course-tag">Security</span>
-            <h3>DevSecOps</h3>
-            <p>Learn DevSecOps concepts, tools and techniques in a hands-on online lab.</p>
-            <div class="course-meta"><span>DevSecOps</span><span>Lab practice</span></div>
-            <a href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-activity"></i></div>
-            <span class="course-tag">Monitoring</span>
-            <h3>Nagios, Splunk, ELK and AppDynamics</h3>
-            <p>Monitor systems, networks and applications, and analyse logs to catch problems early.</p>
-            <div class="course-meta"><span>Monitoring</span><span>Logging</span></div>
-            <a href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-mortarboard-fill"></i></div>
-            <span class="course-tag">Advanced</span>
-            <h3>DevOps Leader, CD Architect and Test Engineering</h3>
-            <p>Advanced programs for leading DevOps teams, designing delivery pipelines and continuous testing.</p>
-            <div class="course-meta"><span>DOL</span><span>CDA</span><span>DTE</span></div>
-            <a href="https://greenstech.in/devops-leader-dol.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
+          <article class="course-card career reveal">
+            <span class="course-tag" style="margin:0">Path 3 &middot; Platform</span>
+            <h3>Kubernetes and Platform</h3>
+            <p class="path-who">You want to run container platforms: clusters, Helm releases, observability and security.</p>
+            <ol class="path-steps"><li><span>Track 1</span> Linux, Shell and Git <em>8 hrs</em></li><li><span>Track 2</span> CI/CD with GitHub Actions and Jenkins <em>8 hrs</em></li><li><span>Track 3</span> Docker <em>6 hrs</em></li><li><span>Track 4</span> Kubernetes and Helm <em>10 hrs</em></li><li><span>Track 5</span> Terraform and Ansible <em>8 hrs</em></li><li><span>Track 7</span> Prometheus, Grafana and ELK <em>6 hrs</em></li><li><span>Track 8</span> DevSecOps <em>4 hrs</em></li><li><span>Track 9</span> End-to-end capstone <em>8 hrs</em></li></ol>
+            <p class="path-total"><strong>8 tracks &middot; 58 hrs</strong></p>
+            
+            <p class="path-note">Spend the most time on Track 4 and prepare for the Kubernetes exams. Capstone focus: autoscaling, monitoring and security scans on Kubernetes.</p>
+            <h4>Certifications to target</h4><div class="course-meta"><span>CKA</span><span>CKAD</span><span>Terraform Associate</span></div>
+            <h4>Typical roles</h4><div class="course-meta"><span>Platform Engineer</span><span>Kubernetes Administrator</span><span>Site Reliability Engineer</span></div>
           </article>
         </div>
+        <p class="reveal" style="text-align:center;color:var(--muted);font-size:13px;margin-top:30px">Not sure which path suits you? <a href="#contact" style="color:var(--accent);font-weight:700">Talk to an advisor</a>. Job roles listed are typical titles for these skills, not a guarantee of placement.</p>
       </div>
     </section>
 
@@ -227,26 +432,20 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
         <div class="section-head reveal">
           <div>
             <span class="kicker">Certification guidance</span>
-            <h2>Prepare for industry-recognised exams.</h2>
+            <h2>Prepare for the certifications employers ask for.</h2>
           </div>
           <p>You also get a course completion certificate, based on your assignments and practical sessions.</p>
         </div>
 
         <div class="program-list">
           <div class="program-row reveal">
-            <span class="program-num"><i class="bi bi-box-seam"></i></span><div><h3>Docker Certified Associate</h3><p>Containers, images and Docker tooling</p></div><span class="program-hours">Docker</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
+            <span class="program-num"><i class="bi bi-diagram-3"></i></span><div><h3>CKA and CKAD</h3><p>Certified Kubernetes Administrator and Application Developer. Prepared in Track 4, Kubernetes and Helm.</p></div><span class="program-hours">Kubernetes</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
           </div>
           <div class="program-row reveal">
-            <span class="program-num"><i class="bi bi-diagram-3"></i></span><div><h3>CKA and CKAD</h3><p>Certified Kubernetes Administrator and Application Developer</p></div><span class="program-hours">Kubernetes</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
+            <span class="program-num"><i class="bi bi-boxes"></i></span><div><h3>HashiCorp Certified: Terraform Associate</h3><p>Infrastructure as code with Terraform. Prepared in Track 5, Infrastructure as Code.</p></div><span class="program-hours">Terraform</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
           </div>
           <div class="program-row reveal">
-            <span class="program-num"><i class="bi bi-cloud"></i></span><div><h3>AWS Certified DevOps Engineer Professional</h3><p>DevOps practices on AWS</p></div><span class="program-hours">AWS</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
-          </div>
-          <div class="program-row reveal">
-            <span class="program-num"><i class="bi bi-microsoft"></i></span><div><h3>Azure DevOps Solution exam</h3><p>DevOps on Microsoft Azure</p></div><span class="program-hours">Azure</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
-          </div>
-          <div class="program-row reveal">
-            <span class="program-num"><i class="bi bi-gear"></i></span><div><h3>Puppet Professional</h3><p>Configuration management certification</p></div><span class="program-hours">Puppet</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
+            <span class="program-num"><i class="bi bi-cloud"></i></span><div><h3>AWS Certified DevOps Engineer &ndash; Professional</h3><p>Professional-level exam on DevOps practices on AWS. AWS recommends 2+ years of hands-on experience and an Associate certification first (see our <a href="aws-training.html#tracks" style="color:var(--accent)">AWS tracks</a>). Track 6 builds the foundation.</p></div><span class="program-hours">AWS Professional</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
           </div>
         </div>
       </div>
@@ -267,7 +466,7 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
             <span class="program-num"><i class="bi bi-laptop"></i></span><div><h3>Online training</h3><p>Instructor-led live online classes</p></div><span class="program-hours">Live</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
           </div>
           <div class="program-row reveal">
-            <span class="program-num"><i class="bi bi-building"></i></span><div><h3>Classroom training</h3><p>Instructor-led classes at our Coimbatore centres</p></div><span class="program-hours">In person</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
+            <span class="program-num"><i class="bi bi-building"></i></span><div><h3>Classroom training</h3><p>Instructor-led classes at our Coimbatore centre</p></div><span class="program-hours">In person</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
           </div>
           <div class="program-row reveal">
             <span class="program-num"><i class="bi bi-person"></i></span><div><h3>One-to-one training</h3><p>Customized, exclusive training based on your requirement</p></div><span class="program-hours">Custom</span><a href="#contact"><i class="bi bi-arrow-up-right"></i></a>
@@ -292,7 +491,7 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
           <div class="benefit reveal"><span>01</span><div><i class="bi bi-laptop"></i><h3>60+ hours of hands-on training</h3><p>Practice on real tools instead of only watching slides.</p></div></div>
           <div class="benefit reveal"><span>02</span><div><i class="bi bi-kanban"></i><h3>2 live projects</h3><p>Build real-world projects you can talk about in interviews.</p></div></div>
           <div class="benefit reveal"><span>03</span><div><i class="bi bi-journal-check"></i><h3>50 hours of practical assignments</h3><p>Reinforce every session with assignments after class.</p></div></div>
-          <div class="benefit reveal"><span>04</span><div><i class="bi bi-headset"></i><h3>24/7 support and lifetime access</h3><p>Session recordings, installation guides and a ticket-based support team.</p></div></div>
+          <div class="benefit reveal"><span>04</span><div><i class="bi bi-briefcase-fill"></i><h3>Career and placement guidance</h3><p>Resume help, mock interviews and job support from our placement team.</p></div></div>
           <div class="benefit reveal"><span>05</span><div><i class="bi bi-briefcase-fill"></i><h3>Career and placement guidance</h3><p>Resume help, mock interviews and job support.</p></div></div>
         </div>
       </div>
@@ -311,7 +510,7 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
           </details>
           <details>
             <summary>What are the prerequisites?</summary>
-            <p>Basic knowledge of Linux or scripting helps. We provide a free Linux course to speed up your learning, and no prior IT experience is required.</p>
+            <p>No prior IT experience is required. Linux, shell scripting and Git are taught from scratch in Track 1.</p>
           </details>
           <details>
             <summary>Is DevOps worth learning?</summary>
@@ -323,7 +522,7 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
           </details>
           <details>
             <summary>What will I get after the training?</summary>
-            <p>A course completion certificate, plus preparation for exams such as Docker, Kubernetes and AWS DevOps Engineer.</p>
+            <p>A course completion certificate, plus preparation for CKA and CKAD, the Terraform Associate exam and, after an AWS Associate certification, the AWS DevOps Engineer Professional exam.</p>
           </details>
           <details>
             <summary>How do I know the course fees?</summary>
@@ -353,13 +552,17 @@ team.<span class="blue">ship</span>(pipeline);</code></pre>
           <label>Phone number<input required name="phone" type="tel" placeholder="+91"></label>
           <label>Interested in
             <select name="course">
-              <option>DevOps Foundation</option>
-              <option>Jenkins CI/CD</option>
-              <option>Docker and Kubernetes</option>
-              <option>Ansible, Puppet and Chef</option>
-              <option>Terraform</option>
-              <option>DevSecOps</option>
               <option>Full DevOps Engineer program</option>
+              <option>Help me choose a career path</option>
+              <option>Linux, Shell and Git</option>
+              <option>CI/CD with GitHub Actions and Jenkins</option>
+              <option>Docker</option>
+              <option>Kubernetes and Helm (CKA/CKAD)</option>
+              <option>Terraform and Ansible</option>
+              <option>AWS for DevOps</option>
+              <option>Prometheus, Grafana and ELK</option>
+              <option>DevSecOps</option>
+              <option>AWS DevOps Engineer Professional prep</option>
             </select>
           </label>
           <button class="btn btn-light" type="submit">Request a callback <i class="bi bi-arrow-right"></i></button>

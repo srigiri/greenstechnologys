@@ -22,6 +22,38 @@
     .faq summary:after{content:"+";color:var(--accent);font-size:22px}
     .faq details[open] summary:after{content:"\2212"}
     .faq details p{color:var(--muted);font-size:14px;margin:12px 0 0}
+
+    /* Learning path + track details */
+    .path{display:grid;grid-template-columns:1fr auto 1.5fr;gap:24px;align-items:center}
+    .path-step,.path-roles{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:26px}
+    .path-main{border-color:rgba(121,242,167,.3)}
+    .path-step h3,.path-role h3{margin:6px 0;font-size:22px;letter-spacing:-.5px}
+    .path-step p,.path-role p{margin:0;color:var(--muted);font-size:14px}
+    .path-arrow{font-size:28px;color:var(--accent)}
+    .path-roles{display:grid;gap:12px}
+    .path-role{display:flex;gap:14px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:16px}
+    .path-role i{font-size:22px;color:var(--accent)}
+    .path-role h3{font-size:18px;margin:0 0 2px}
+    .path-next{margin:22px 0 0;color:var(--muted);font-size:14px}
+    .path-next i,.path-next a{color:var(--accent)}
+    .track{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);margin-bottom:14px;overflow:hidden}
+    .track>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px}
+    .track>summary::-webkit-details-marker{display:none}
+    .track>summary:after{content:"+";color:var(--accent);font-size:26px;margin-left:auto}
+    .track[open]>summary:after{content:"\2212"}
+    .track-title h3{margin:4px 0 0;font-size:24px;letter-spacing:-.8px}
+    .track-body{padding:0 26px 26px;border-top:1px solid var(--line)}
+    .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:22px 0}
+    .fact h4,.modules h4{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:1.4px;color:var(--accent)}
+    .fact p{margin:0;font-size:14px;color:var(--muted)}
+    .modules details{border-top:1px solid var(--line);padding:14px 0}
+    .modules summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:12px}
+    .modules summary::-webkit-details-marker{display:none}
+    .modules summary:after{content:"+";margin-left:auto;color:var(--accent)}
+    .modules details[open] summary:after{content:"\2212"}
+    .mod-n{color:var(--muted);font:600 12px "Space Grotesk";padding-top:3px}
+    .modules p{margin:10px 0 0 36px;color:var(--muted);font-size:14px}
+    @media(max-width:900px){.path{grid-template-columns:1fr}.path-arrow{transform:rotate(90deg);justify-self:center}.facts{grid-template-columns:1fr}.track>summary{flex-wrap:wrap}}
   </style>
 </head>
 <body>
@@ -47,9 +79,10 @@
           <a href="courses.html">Courses <i class="bi bi-chevron-down"></i></a>
           <div class="nav-dd-menu">
             <a href="aws-training.html" aria-current="page">AWS Training</a>
-            <a href="devops-training.html">DevOps Engineer</a>
+            <a href="devops-training.html">DevOps Training</a>
             <a href="data-analytics-training.html">Data Analytics</a>
             <a href="ai-training.html">Artificial Intelligence</a>
+            <a href="cloud-devops-master-program.html">Cloud and DevOps Master Program</a>
             <a href="courses.html" class="nav-dd-all">View all courses <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
@@ -64,7 +97,7 @@
 
   <div class="page-strip" aria-label="On this page">
     <div class="container page-strip-inner">
-      <div class="page-strip-links"><span>On this page</span><a href="#tracks">AWS tracks</a><a href="#trainer">Trainer</a><a href="#faq">FAQs</a></div>
+      <div class="page-strip-links"><span>On this page</span><a href="#tracks">Learning path</a><a href="#curriculum">Curriculum</a><a href="#trainer">Trainer</a><a href="#faq">FAQs</a></div>
       <a class="page-strip-cta" href="#contact">Enquire <i class="bi bi-arrow-right"></i></a>
     </div>
   </div>
@@ -89,7 +122,7 @@
 
           <div class="trust-row">
             <div><strong>4.9</strong><span>4,980 ratings</span></div>
-            <div><strong>15K+</strong><span>Learners</span></div>
+            <div><strong>10K+</strong><span>Learners</span></div>
             <div><strong>40+ hrs</strong><span>Hands-on training</span></div>
           </div>
         </div>
@@ -102,9 +135,8 @@
             <pre><code><span class="purple">const</span> path = [
   <span class="green">'Cloud Practitioner'</span>,
   <span class="green">'Solutions Architect'</span>,
-  <span class="green">'Developer'</span>,
-  <span class="green">'SysOps Administrator'</span>,
-  <span class="green">'DevOps Engineer'</span>
+  <span class="green">'CloudOps Engineer'</span>,
+  <span class="green">'Developer'</span>
 ];
 
 learner.<span class="blue">certify</span>(path);</code></pre>
@@ -131,67 +163,122 @@ learner.<span class="blue">certify</span>(path);</code></pre>
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="kicker">AWS course content</span>
-            <h2>Pick the AWS path that fits your role.</h2>
+            <span class="kicker">AWS learning path</span>
+            <h2>Start with the foundation. Then choose your role.</h2>
           </div>
-          <p>Each track lines up with an AWS certification. Start with the basics or go straight to architecting, developing or operations.</p>
+          <p>Everyone begins with Cloud Practitioner. After that, pick one Associate track based on the work you want to do.</p>
         </div>
 
-        <div class="course-grid">
-          <article class="course-card featured reveal">
-            <div class="course-icon"><i class="bi bi-cloud-fill"></i></div>
-            <span class="course-tag">Beginner</span>
-            <h3>Cloud Practitioner Essentials</h3>
-            <p>AWS cloud architecture and services, with certification prep. No prerequisites, freshers welcome.</p>
-            <div class="course-meta"><span>No prerequisites</span><span>Certification</span></div>
-            <a href="https://greenstech.in/AWS-Cloud-Practitioner-Essentials.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-hdd-network-fill"></i></div>
-            <span class="course-tag">Foundation</span>
-            <h3>AWS Technical Essentials</h3>
-            <p>Overview of EC2, S3, RDS, DynamoDB, Route 53, VPC and the core AWS toolset.</p>
-            <div class="course-meta"><span>Hands-on</span><span>Core services</span></div>
-            <a href="https://greenstech.in/Aws-Technical-Essentials.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-diagram-3-fill"></i></div>
-            <span class="course-tag">Architect</span>
-            <h3>Architecting on AWS</h3>
-            <p>Design highly available systems, with an advanced architecting module.</p>
-            <div class="course-meta"><span>Solutions Architect</span><span>Advanced</span></div>
-            <a href="https://greenstech.in/Architecting-on-aws.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-code-slash"></i></div>
-            <span class="course-tag">Developer</span>
-            <h3>Developing on AWS</h3>
-            <p>Build and deploy cloud applications, with an advanced developing module.</p>
-            <div class="course-meta"><span>Developer</span><span>Advanced</span></div>
-            <a href="https://greenstech.in/Developing-on-Aws.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-gear-wide-connected"></i></div>
-            <span class="course-tag">Operations</span>
-            <h3>Systems Operations on AWS</h3>
-            <p>Automate applications, networks and systems, and run them reliably in the cloud.</p>
-            <div class="course-meta"><span>SysOps</span><span>Automation</span></div>
-            <a href="https://greenstech.in/system-operations-on-aws.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
-          </article>
-
-          <article class="course-card reveal">
-            <div class="course-icon"><i class="bi bi-infinity"></i></div>
-            <span class="course-tag">DevOps</span>
-            <h3>DevOps Engineering on AWS</h3>
-            <p>Design, deploy and manage AWS cloud systems with DevOps practices.</p>
-            <div class="course-meta"><span>DevOps Engineer</span><span>CI/CD</span></div>
-            <a href="https://greenstech.in/Devops-Engineering-on-Aws.pdf" target="_blank" rel="noopener">Curriculum <i class="bi bi-arrow-right"></i></a>
-          </article>
+        <div class="path reveal">
+          <div class="path-step path-main">
+            <span class="course-tag" style="margin:0">Step 1</span>
+            <h3>Cloud Practitioner</h3>
+            <p>Foundational. Cloud basics, core services, security and pricing. No prerequisites.</p>
+          </div>
+          <div class="path-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+          <div class="path-roles">
+            <span class="course-tag" style="margin:0 0 4px">Step 2 &middot; Choose one Associate track</span>
+            <div class="path-role"><i class="bi bi-diagram-3-fill"></i><div><h3>Solutions Architect</h3><p>You want to <strong>design</strong> systems.</p></div></div>
+            <div class="path-role"><i class="bi bi-gear-wide-connected"></i><div><h3>CloudOps Engineer</h3><p>You want to <strong>run and monitor</strong> systems.</p></div></div>
+            <div class="path-role"><i class="bi bi-code-slash"></i><div><h3>Developer</h3><p>You want to <strong>build</strong> applications.</p></div></div>
+          </div>
         </div>
+        <p class="path-next reveal"><i class="bi bi-arrow-return-right"></i> After an Associate: continue to the Professional level with our <a href="devops-training.html#certifications">DevOps program</a>. Foundational + one Associate track = 40+ hrs and 2 projects.</p>
+
+        <div class="section-head reveal" id="curriculum" style="margin-top:70px">
+          <div>
+            <span class="kicker">Track details</span>
+            <h2>Duration, prerequisites, projects and curriculum.</h2>
+          </div>
+          <p>Open a track to see what you need, what you will build and the modules covered.</p>
+        </div>
+
+        <details class="track reveal" open>
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Step 1 &middot; Foundational</span><h3>Cloud Practitioner</h3></div>
+            <div class="course-meta"><span>CLF-C02</span><span>Foundational</span><span>10 hrs</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">10 hrs</strong><br>Instructor-led sessions plus a guided lab. Start here before any Associate track.</p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>None. Freshers and non-technical learners are welcome.</p></div>
+              <div class="fact"><h4>Project</h4><p>Guided project: set up an AWS account safely, create IAM users with MFA, host a static website on S3 and set a cost budget.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Cloud concepts</summary><p>Benefits of the AWS Cloud, cloud economics, the Well-Architected pillars, Regions, Availability Zones and edge locations.</p></details>
+            <details><summary><span class="mod-n">02</span> Security and compliance</summary><p>Shared responsibility model, IAM users, roles and policies, MFA, encryption basics and compliance resources.</p></details>
+            <details><summary><span class="mod-n">03</span> Core AWS services</summary><p>Compute (EC2, Lambda, containers), storage (S3, EBS, EFS), databases (RDS, DynamoDB) and networking (VPC, Route 53, CloudFront).</p></details>
+            <details><summary><span class="mod-n">04</span> Billing, pricing and support</summary><p>On-Demand, Reserved and Spot pricing, Savings Plans, Cost Explorer, Budgets and AWS Support plans.</p></details>
+            <details><summary><span class="mod-n">05</span> Exam readiness</summary><p>Practice questions, a full mock exam and exam-day guidance.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about Cloud Practitioner <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Step 2 &middot; Associate &middot; Architect</span><h3>Solutions Architect</h3></div>
+            <div class="course-meta"><span>SAA-C03</span><span>Associate</span><span>30+ hrs</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">30+ hrs</strong><br>Foundational + this track = 40+ hrs.</p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Cloud Practitioner or equivalent AWS basics, plus basic networking and operating-system knowledge.</p></div>
+              <div class="fact"><h4>Project</h4><p>Capstone project: design and deploy a highly available three-tier web application with a load balancer, Auto Scaling and a Multi-AZ database.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Design secure architectures</summary><p>Advanced IAM, KMS, VPC security groups and network ACLs, data protection and multi-account governance with AWS Organizations.</p></details>
+            <details><summary><span class="mod-n">02</span> Design resilient architectures</summary><p>Multi-AZ and multi-Region designs, Elastic Load Balancing, Auto Scaling, decoupling with SQS and SNS, backup and disaster-recovery strategies.</p></details>
+            <details><summary><span class="mod-n">03</span> Design high-performing architectures</summary><p>Choosing compute, storage and database services, caching with ElastiCache and CloudFront, VPC design and connectivity.</p></details>
+            <details><summary><span class="mod-n">04</span> Design cost-optimized architectures</summary><p>Storage tiers and lifecycle rules, right-sizing, purchase options and cost-monitoring tools.</p></details>
+            <details><summary><span class="mod-n">05</span> Project and exam readiness</summary><p>Capstone build, scenario-based practice questions and mock exams.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about Solutions Architect <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Step 2 &middot; Associate &middot; Operations</span><h3>CloudOps Engineer</h3></div>
+            <div class="course-meta"><span>SOA-C03</span><span>Associate</span><span>30+ hrs</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">30+ hrs</strong><br>Foundational + this track = 40+ hrs. Formerly SysOps Administrator.</p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Cloud Practitioner or equivalent AWS basics, plus Linux administration, scripting and networking basics.</p></div>
+              <div class="fact"><h4>Project</h4><p>Capstone project: build monitoring, alerting and automated remediation for a running workload using CloudWatch, Systems Manager and CloudFormation.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Monitoring, logging and remediation</summary><p>CloudWatch metrics, alarms and logs, EventBridge, CloudTrail, AWS Config and performance tuning.</p></details>
+            <details><summary><span class="mod-n">02</span> Reliability and business continuity</summary><p>Auto Scaling, load balancing, AWS Backup, multi-AZ and multi-Region recovery.</p></details>
+            <details><summary><span class="mod-n">03</span> Deployment, provisioning and automation</summary><p>Infrastructure as code with CloudFormation, Systems Manager, AMIs and an introduction to containers on AWS.</p></details>
+            <details><summary><span class="mod-n">04</span> Security and compliance</summary><p>IAM, KMS, Secrets Manager, Config rules and multi-account controls.</p></details>
+            <details><summary><span class="mod-n">05</span> Networking and content delivery</summary><p>VPC design, Route 53, CloudFront, VPN and Direct Connect, plus connectivity troubleshooting.</p></details>
+            <details><summary><span class="mod-n">06</span> Project and exam readiness</summary><p>Capstone build and mock exams.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about CloudOps Engineer <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <details class="track reveal">
+          <summary>
+            <div class="track-title"><span class="course-tag" style="margin:0">Step 2 &middot; Associate &middot; Developer</span><h3>Developer</h3></div>
+            <div class="course-meta"><span>DVA-C02</span><span>Associate</span><span>30+ hrs</span></div>
+          </summary>
+          <div class="track-body">
+            <div class="facts">
+              <div class="fact"><h4>Duration</h4><p><strong style="color:var(--text)">30+ hrs</strong><br>Foundational + this track = 40+ hrs. AWS is replacing DVA-C02 with DVA-C03 from late 2026; ask us which version your batch prepares for.</p></div>
+              <div class="fact"><h4>Prerequisites</h4><p>Cloud Practitioner or equivalent AWS basics, plus working knowledge of at least one programming language such as Python, Java or Node.js.</p></div>
+              <div class="fact"><h4>Project</h4><p>Capstone project: build and deploy a serverless REST API with API Gateway, Lambda and DynamoDB, released through an automated pipeline.</p></div>
+            </div>
+            <div class="modules"><h4>Curriculum modules</h4>
+            <details><summary><span class="mod-n">01</span> Development with AWS services</summary><p>Lambda, API Gateway, DynamoDB, S3, SQS, SNS, Step Functions, and using the AWS SDK and CLI.</p></details>
+            <details><summary><span class="mod-n">02</span> Security</summary><p>IAM roles for applications, Amazon Cognito, KMS, Secrets Manager, Parameter Store and encryption.</p></details>
+            <details><summary><span class="mod-n">03</span> Deployment</summary><p>CI/CD with CodeBuild, CodeDeploy and CodePipeline, CloudFormation and SAM, Elastic Beanstalk and container images.</p></details>
+            <details><summary><span class="mod-n">04</span> Troubleshooting and optimization</summary><p>CloudWatch, X-Ray tracing, caching, and tuning application performance and cost.</p></details>
+            <details><summary><span class="mod-n">05</span> Project and exam readiness</summary><p>Capstone build and mock exams.</p></details>
+            </div>
+            <a class="btn btn-primary" href="#contact" style="margin-top:22px">Enquire about Developer <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </details>
+        <p class="reveal" style="text-align:center;color:var(--muted);font-size:13px;margin-top:30px">Curriculum follows the official AWS exam domains. Exam codes and versions are set by AWS and change from time to time. Ask our advisors for the version currently being tested.</p>
       </div>
     </section>
 
@@ -283,12 +370,11 @@ learner.<span class="blue">certify</span>(path);</code></pre>
           <label>Phone number<input required name="phone" type="tel" placeholder="+91"></label>
           <label>Interested in
             <select name="course">
-              <option>Cloud Practitioner Essentials</option>
-              <option>AWS Technical Essentials</option>
-              <option>Architecting on AWS</option>
-              <option>Developing on AWS</option>
-              <option>Systems Operations on AWS</option>
-              <option>DevOps Engineering on AWS</option>
+              <option>Cloud Practitioner (CLF-C02)</option>
+              <option>Solutions Architect Associate (SAA-C03)</option>
+              <option>CloudOps Engineer Associate (SOA-C03)</option>
+              <option>Developer Associate (DVA-C02)</option>
+              <option>Not sure yet</option>
             </select>
           </label>
           <button class="btn btn-light" type="submit">Request a callback <i class="bi bi-arrow-right"></i></button>
@@ -304,7 +390,7 @@ learner.<span class="blue">certify</span>(path);</code></pre>
         <a href="index.html" class="footer-logo" aria-label="Greens Technology home"><img src="assets/greenstechnologys_logo.png" alt="Greens Technology"></a>
         <p>Practical software training for students, professionals and career switchers.</p>
       </div>
-      <div><h4>Explore</h4><a href="index.html#courses">Courses</a><a href="#tracks">AWS tracks</a><a href="#faq">FAQs</a></div>
+      <div><h4>Explore</h4><a href="index.html#courses">Courses</a><a href="#tracks">Learning path</a><a href="#curriculum">Curriculum</a><a href="#faq">FAQs</a></div>
       <div><h4>Training</h4><a href="#modes">Online</a><a href="#modes">Classroom</a><a href="#modes">Corporate</a></div>
       <div><h4>Contact</h4><p>Coimbatore, Tamil Nadu</p><a href="tel:+918939915577">+91 89399 15577</a><a href="mailto:contact@greenstechnologys.com">contact@greenstechnologys.com</a></div>
     </div>
