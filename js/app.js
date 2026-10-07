@@ -34,12 +34,95 @@ topButton.addEventListener('click', () => window.scrollTo({top:0, behavior:'smoo
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-document.getElementById('leadForm')?.addEventListener('submit', e => {
+/* =========================================================
+   ENQUIRY FORM
+   Set ONE of these up so leads are actually delivered:
+   - FORM_ENDPOINT = Formspree URL  (https://formspree.io/f/xxxxxxxx), type 'formspree'
+   - FORM_ENDPOINT = Google Apps Script web-app URL, type 'sheets'
+   With no endpoint, the form opens WhatsApp with the details filled in.
+========================================================= */
+const FORM_ENDPOINT = '';
+const FORM_ENDPOINT_TYPE = 'formspree';   // 'formspree' | 'sheets'
+const WHATSAPP_NUMBER = '918939915577';   // country code + number, digits only
+const ALSO_OPEN_WHATSAPP = false;         // true = send to endpoint AND open WhatsApp
+
+document.getElementById('leadForm')?.addEventListener('submit', async e => {
   e.preventDefault();
+  const form = e.target;
   const message = document.getElementById('formMessage');
-  message.textContent = 'Thanks! Your request has been captured. Connect this form to your CRM/API.';
-  e.target.reset();
+  const button = form.querySelector('button[type="submit"]');
+  message.setAttribute('aria-live', 'polite');
+
+  // Honeypot: real visitors never see or fill this field
+  if (form.elements.website && form.elements.website.value) return;
+
+  const name = form.elements.name.value.trim();
+  const phone = form.elements.phone.value.trim();
+  const course = form.elements.course ? form.elements.course.value : '';
+  const digits = phone.replace(/\D/g, '');
+
+  if (digits.length < 10 || digits.length > 13) {
+    message.textContent = 'Please enter a valid phone number.';
+    form.elements.phone.focus();
+    return;
+  }
+
+  const data = {
+    name, phone, course,
+    page: document.title,
+    url: location.href,
+    submitted_at: new Date().toISOString()
+  };
+
+  const waText = `Hi Greens Technology, I would like a callback.\nName: ${name}\nPhone: ${phone}\nCourse: ${course}\n(Sent from: ${document.title})`;
+  const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
+  const openWhatsApp = () => window.open(waUrl, '_blank', 'noopener');
+
+  // No endpoint configured: hand the lead over via WhatsApp
+  if (!FORM_ENDPOINT) {
+    openWhatsApp();
+    message.textContent = 'Opening WhatsApp. Please press Send to complete your request.';
+    form.reset();
+    return;
+  }
+
+  if (ALSO_OPEN_WHATSAPP) openWhatsApp();
+
+  const original = button.innerHTML;
+  button.disabled = true;
+  button.textContent = 'Sending...';
+  message.textContent = '';
+
+  try {
+    if (FORM_ENDPOINT_TYPE === 'sheets') {
+      // Google Apps Script web apps do not return readable CORS responses
+      await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data)
+      });
+    } else {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error('Request failed: ' + res.status);
+    }
+    message.textContent = 'Thanks! We have received your request and will call you back soon.';
+    form.reset();
+  } catch (err) {
+    message.innerHTML = 'Sorry, we could not send your request. Please <a href="' + waUrl + '" target="_blank" rel="noopener" style="text-decoration:underline">message us on WhatsApp</a> or call +91 ' + WHATSAPP_NUMBER.slice(-10, -5) + ' ' + WHATSAPP_NUMBER.slice(-5) + '.';
+  } finally {
+    button.disabled = false;
+    button.innerHTML = original;
+  }
 });
+
+// Add the hidden honeypot field to every enquiry form
+document.getElementById('leadForm')?.insertAdjacentHTML('beforeend',
+  '<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">');
 
 
 
