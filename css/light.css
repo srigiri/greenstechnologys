@@ -1770,3 +1770,103 @@ html{scroll-padding-top:130px}
 .page-strip-links a:hover{color:var(--accent)}
 .page-strip-cta{flex-shrink:0;font-size:13px;font-weight:700;color:var(--accent)}
 @media(max-width:600px){.page-strip-links span{display:none}.page-strip-inner{gap:14px}}
+
+/* Enquiry form consent line */
+.lead-form .consent{grid-column:1/-1;display:flex;gap:10px;align-items:flex-start}
+.lead-form .consent input{width:auto;margin:3px 0 0;flex:none}
+.lead-form .consent label{font-size:12px;font-weight:500;line-height:1.5}
+.lead-form .consent a{text-decoration:underline}
+@media(max-width:600px){.lead-form .consent{grid-column:auto}}
+
+/* =========================
+   PHOTOS, PLACEHOLDERS AND TOOL LOGOS
+   ========================= */
+.tech-list b{display:inline-flex;align-items:center;gap:9px}
+.tool-logo{width:24px;height:24px;padding:3px;border-radius:7px;background:#fff;object-fit:contain;flex:none}
+.photo-slot{position:relative;overflow:hidden;margin:0;border-radius:var(--radius);border:1px solid var(--line);background:var(--surface)}
+.photo-slot img{display:block;width:100%;height:100%;object-fit:cover}
+.photo-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;height:100%;padding:12px;text-align:center;font-size:12px;color:var(--muted);background:linear-gradient(145deg,rgba(128,128,128,.12),rgba(128,128,128,.04))}
+.photo-ph i{font-size:28px;color:var(--accent)}
+.trainer-card{display:flex;align-items:center;gap:16px;margin-top:22px;padding:14px;max-width:430px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.trainer-card .photo-slot{width:84px;height:84px;border-radius:50%;flex:none}
+.trainer-card .photo-ph span{display:none}
+.trainer-card .photo-ph i{font-size:30px}
+.trainer-card h4{margin:0;font-size:17px}
+.why-copy .trainer-card p{margin:2px 0 0;font-size:12px;max-width:none}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gallery .photo-slot{aspect-ratio:4/3}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.gallery{grid-template-columns:1fr}}
+
+
+/* =========================================================
+   BATCH TABLE, SYLLABUS DOWNLOAD, MOBILE CALL BAR
+   ========================================================= */
+.btn-sm{padding:10px 15px;font-size:13px;white-space:nowrap}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Batch table */
+.batch-wrap{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.batch-table{width:100%;border-collapse:collapse;font-size:14px;color:var(--text)}
+.batch-table th{text-align:left;font-size:12px;font-weight:700;color:var(--muted);padding:15px 22px;border-bottom:1px solid var(--line);white-space:nowrap}
+.batch-table td{padding:18px 22px;border-bottom:1px solid var(--line);vertical-align:middle}
+.batch-table tbody tr:last-child td{border-bottom:0}
+.batch-name strong{display:block;font-size:15px;line-height:1.35}
+.batch-name span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.batch-mode{display:inline-flex;align-items:center;gap:8px}
+.batch-mode i{color:var(--accent)}
+.batch-demo.is-ask{color:var(--muted)}
+.batch-table td.batch-cta{text-align:right}
+.batch-note{margin:18px 0 0;font-size:13px;color:var(--muted)}
+.batch-note a{color:var(--accent);font-weight:700}
+@media(max-width:700px){
+  .batch-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .batch-table,.batch-table tbody,.batch-table tr,.batch-table td{display:block}
+  .batch-table tr{padding:18px;border-bottom:1px solid var(--line)}
+  .batch-table tbody tr:last-child{border-bottom:0}
+  .batch-table td{display:flex;justify-content:space-between;gap:16px;padding:6px 0;border:0;text-align:right}
+  .batch-table td::before{content:attr(data-label);flex:none;color:var(--muted);font-size:12px;text-align:left}
+  .batch-table td.batch-name{display:block;text-align:left;padding-bottom:10px}
+  .batch-table td.batch-name::before{display:none}
+  .batch-table td.batch-cta{display:block;padding-top:12px}
+  .batch-table td.batch-cta::before{display:none}
+  .batch-table td.batch-cta .btn{width:100%}
+}
+
+/* Syllabus download */
+.syl-card{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding:44px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.syl-copy h2{font-size:clamp(30px,3.4vw,44px);margin:12px 0 14px}
+.syl-copy p{color:var(--muted);max-width:470px;margin:0 0 20px}
+.syl-points{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:14px}
+.syl-points li{display:flex;gap:10px;align-items:flex-start}
+.syl-points i{color:var(--accent);margin-top:2px}
+.syl-form{position:relative;display:grid;gap:14px;padding:26px;border-radius:calc(var(--radius) - 6px);background:var(--surface-2);border:1px solid var(--line)}
+.syl-fields{display:grid;gap:14px}
+.syl-form label{font-size:12px;font-weight:700;color:var(--text)}
+.syl-form input[type="tel"],.syl-form select{display:block;width:100%;margin-top:6px;border:1px solid var(--line);border-radius:10px;padding:13px;background:var(--bg);color:var(--text);font:inherit;font-size:16px}
+.syl-form input[type="tel"]:focus-visible,.syl-form select:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.syl-form .consent{display:flex;gap:10px;align-items:flex-start}
+.syl-form .consent input{width:auto;margin:3px 0 0;flex:none}
+.syl-form .consent label{font-size:12px;font-weight:500;line-height:1.5;color:var(--muted)}
+.syl-form .consent a{text-decoration:underline;color:var(--text)}
+.syl-form .btn{width:100%}
+.syl-form small{display:block;color:var(--muted);font-size:12px;min-height:0}
+.syl-form small:empty{display:none}
+.syl-done{display:grid;gap:12px;justify-items:start}
+.syl-done[hidden],.syl-fields[hidden]{display:none}
+.syl-done p{margin:0;color:var(--muted);font-size:14px}
+.syl-done strong{display:block;color:var(--text);font-size:18px;margin-bottom:2px}
+@media(max-width:900px){.syl-card{grid-template-columns:1fr;gap:28px;padding:28px}}
+@media(max-width:600px){.syl-card{padding:22px}.syl-form{padding:20px}}
+
+/* Floating call + WhatsApp buttons (all screen sizes) */
+.mbar{display:flex;flex-direction:column;gap:12px;position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:45}
+.mbar a{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;font-size:26px;line-height:1;box-shadow:0 8px 22px rgba(0,0,0,.28);transition:transform .2s}
+.mbar a:hover{transform:scale(1.06)}
+.mbar a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.mbar-wa{background:#128c4a;color:#fff}
+.has-mbar .footer{padding-bottom:calc(140px + env(safe-area-inset-bottom,0px))}
+.has-mbar .back-top{right:auto;left:16px;bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+body.kb-open .mbar{display:none}
+@media(prefers-reduced-motion:reduce){.mbar a{transition:none}.mbar a:hover{transform:none}}
+.mbar-call{background:var(--accent);color:#fff}
