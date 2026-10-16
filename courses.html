@@ -115,6 +115,57 @@
       </div>
     </section>
 
+    <section class="section" id="batches" data-course="all" hidden>
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="kicker">Upcoming batches</span>
+            <h2>Pick a batch that fits your day.</h2>
+          </div>
+          <p>Check timings, mode and free demo class dates. For the latest fees, call us.</p>
+        </div>
+        <div class="batch-wrap reveal">
+          <table class="batch-table">
+            <thead><tr><th scope="col">Batch</th><th scope="col">Timings</th><th scope="col">Mode</th><th scope="col">Free demo class</th><th scope="col"><span class="sr-only">Fees</span></th></tr></thead>
+            <tbody id="batchBody"></tbody>
+          </table>
+        </div>
+        <p class="batch-note">Need a different time? Tell us when you are free and an advisor will suggest a batch. <a href="contact.html">Talk to an advisor</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="syllabus">
+      <div class="container">
+        <div class="syl-card reveal">
+          <div class="syl-copy">
+            <span class="kicker">Free syllabus</span>
+            <h2>Download a free syllabus.</h2>
+            <p>Enter your phone number to download it. An advisor may call to answer your questions.</p>
+            <ul class="syl-points">
+              <li><i class="bi bi-check2-circle"></i><span>Pick the course you are interested in</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>Curriculum, tools and projects in one PDF</span></li>
+              <li><i class="bi bi-check2-circle"></i><span>Opens on your phone, easy to save and share</span></li>
+            </ul>
+          </div>
+          <form class="syl-form" id="syllabusForm" data-syllabus="devops">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
+            <div class="syl-fields">
+              <label>Phone number<input required name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number"></label>
+              <label>Course<select name="syllabus"><option value="aws">AWS Training</option><option value="devops" selected>DevOps Training</option><option value="data-analytics">Data Analytics</option><option value="ai">Artificial Intelligence</option><option value="master">Cloud and DevOps Master Program</option></select></label>
+              <div class="consent"><input type="checkbox" id="sylConsent" name="consent" required><label for="sylConsent">I agree that Greens Technology may contact me by phone, WhatsApp or email about this syllabus and my course enquiry, and may use my number as described in the <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.</label></div>
+              <button class="btn btn-primary" type="submit"><i class="bi bi-file-earmark-pdf"></i> Get the syllabus (PDF)</button>
+            </div>
+            <div class="syl-done" hidden>
+              <p><strong>Your syllabus is ready.</strong>Save it to your phone or share it with a friend.</p>
+              <a class="btn btn-primary" href="#" download target="_blank" rel="noopener"><i class="bi bi-download"></i> Download syllabus (PDF)</a>
+              <p>Want batch timings and fees? <a href="tel:+918939915577" style="color:var(--accent);font-weight:700">Call +91 89399 15577</a></p>
+            </div>
+            <small id="sylMessage"></small>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-section">
       <div class="container cta-grid">
         <div>
@@ -134,7 +185,7 @@
         <a href="index.html" class="footer-logo" aria-label="Greens Technology home"><img src="assets/greenstechnologys_logo.png" alt="Greens Technology"></a>
         <p>Practical software training for students, professionals and career switchers.</p>
       </div>
-      <div><h4>Explore</h4><a href="courses.html">Courses</a><a href="about.html">About</a><a href="placements.html">Placements</a></div>
+      <div><h4>Explore</h4><a href="courses.html">Courses</a><a href="about.html">About</a><a href="placements.html">Placements</a><a href="privacy-policy.html">Privacy Policy</a></div>
       <div><h4>Courses</h4><a href="aws-training.html">AWS</a><a href="devops-training.html">DevOps</a><a href="ai-training.html">Artificial Intelligence</a><a href="data-analytics-training.html">Data Analytics</a></div>
       <div><h4>Contact</h4><p>Coimbatore, Tamil Nadu</p><a href="tel:+918939915577">+91 89399 15577</a><a href="mailto:contact@greenstechnologys.com">contact@greenstechnologys.com</a></div>
     </div>

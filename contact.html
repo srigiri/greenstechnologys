@@ -74,10 +74,11 @@
     <section class="section" id="contact">
       <div class="container contact-grid">
         <div class="info-grid reveal">
+          <a class="btn btn-primary" id="waBtn" href="https://wa.me/918939915577" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Chat on WhatsApp</a>
           <div class="info-card"><i class="bi bi-telephone"></i><div><h3>Phone</h3><a href="tel:+918939915577">+91 89399 15577</a></div></div>
           <div class="info-card"><i class="bi bi-envelope"></i><div><h3>Email</h3><a href="mailto:contact@greenstechnologys.com">contact@greenstechnologys.com</a></div></div>
-          <!-- Add the street address of your Coimbatore centre below. -->
-          <div class="info-card"><i class="bi bi-geo-alt"></i><div><h3>Location</h3><p>Coimbatore, Tamil Nadu</p></div></div>
+          <div class="info-card"><i class="bi bi-geo-alt"></i><div><h3>Address</h3><p id="addrText">Coimbatore, Tamil Nadu</p><a id="dirLink" href="#" target="_blank" rel="noopener" hidden style="color:var(--accent);font-weight:700;margin-top:6px">Get directions</a></div></div>
+          <div class="info-card" id="hoursCard" hidden><i class="bi bi-clock"></i><div><h3>Opening hours</h3><div id="hoursList"></div></div></div>
         </div>
         <form class="lead-form reveal" id="leadForm" style="background:var(--surface);border:1px solid var(--line)">
           <label style="color:var(--text)">Full name<input required name="name" type="text" placeholder="Your name"></label>
@@ -91,9 +92,17 @@
               <option>Other</option>
             </select>
           </label>
+          <div class="consent" style="color:var(--text)"><input type="checkbox" id="consent" name="consent" required><label for="consent">I agree that Greens Technology may contact me by phone, WhatsApp or email about my enquiry, and may use the details I submit as described in the <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>.</label></div>
           <button class="btn btn-primary" type="submit">Request a callback <i class="bi bi-arrow-right"></i></button>
           <small id="formMessage" style="color:var(--muted)"></small>
         </form>
+      </div>
+    </section>
+
+    <section class="section" id="mapSection" hidden style="padding-top:0">
+      <div class="container">
+        <iframe id="mapFrame" title="Map to our Coimbatore centre" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          style="width:100%;height:380px;border:1px solid var(--line);border-radius:var(--radius)"></iframe>
       </div>
     </section>
 
@@ -105,7 +114,7 @@
         <a href="index.html" class="footer-logo" aria-label="Greens Technology home"><img src="assets/greenstechnologys_logo.png" alt="Greens Technology"></a>
         <p>Practical software training for students, professionals and career switchers.</p>
       </div>
-      <div><h4>Explore</h4><a href="courses.html">Courses</a><a href="about.html">About</a><a href="placements.html">Placements</a></div>
+      <div><h4>Explore</h4><a href="courses.html">Courses</a><a href="about.html">About</a><a href="placements.html">Placements</a><a href="privacy-policy.html">Privacy Policy</a></div>
       <div><h4>Courses</h4><a href="aws-training.html">AWS</a><a href="devops-training.html">DevOps</a><a href="ai-training.html">Artificial Intelligence</a><a href="data-analytics-training.html">Data Analytics</a></div>
       <div><h4>Contact</h4><p>Coimbatore, Tamil Nadu</p><a href="tel:+918939915577">+91 89399 15577</a><a href="mailto:contact@greenstechnologys.com">contact@greenstechnologys.com</a></div>
     </div>
@@ -114,5 +123,51 @@
 
   <button class="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
   <script src="js/app.js"></script>
+  <script>
+  /* ---------------------------------------------------------------
+     CONTACT_CONFIG: fill in the Coimbatore centre details.
+     Address, map, directions and opening hours stay hidden until set.
+       address: ["Door no, Street", "Area", "Coimbatore 641xxx"]
+       mapQuery: optional. Text Google Maps should search (defaults to the address)
+       hours:   [{ days: "Monday to Saturday", time: "9:00 AM to 7:00 PM" }]
+  ---------------------------------------------------------------- */
+  const CONTACT_CONFIG = {
+    address: [],
+    mapQuery: "",
+    hours: [],
+    whatsapp: "918939915577",
+    whatsappMessage: "Hi Greens Technology, I would like details about courses at your Coimbatore centre."
+  };
+
+  (function () {
+    const c = CONTACT_CONFIG;
+    document.getElementById('waBtn').href =
+      'https://wa.me/' + c.whatsapp + '?text=' + encodeURIComponent(c.whatsappMessage);
+
+    if (c.address.length) {
+      document.getElementById('addrText').innerHTML = '';
+      c.address.forEach((line, i) => {
+        if (i) document.getElementById('addrText').appendChild(document.createElement('br'));
+        document.getElementById('addrText').appendChild(document.createTextNode(line));
+      });
+      const q = encodeURIComponent(c.mapQuery || c.address.join(', '));
+      const dir = document.getElementById('dirLink');
+      dir.href = 'https://www.google.com/maps/search/?api=1&query=' + q;
+      dir.hidden = false;
+      document.getElementById('mapFrame').src = 'https://www.google.com/maps?q=' + q + '&output=embed';
+      document.getElementById('mapSection').hidden = false;
+    }
+    if (c.hours.length) {
+      const list = document.getElementById('hoursList');
+      c.hours.forEach(h => {
+        const p = document.createElement('p');
+        p.textContent = h.days + ': ' + h.time;
+        list.appendChild(p);
+      });
+      document.getElementById('hoursCard').hidden = false;
+    }
+  })();
+  </script>
+
 </body>
 </html>
