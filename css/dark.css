@@ -211,7 +211,13 @@ html{scroll-padding-top:130px}
 @media(max-width:900px){.gallery{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.gallery{grid-template-columns:1fr}}
 
-
+/* Wide master-program card in the course grid */
+.course-card.wide{grid-column:1/-1;min-height:0;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.course-card.wide .wide-copy{flex:1 1 360px}
+.course-card.wide h3{margin:6px 0 8px}
+.course-card.wide p{min-height:0;margin:0 0 14px}
+.course-card.wide .card-link{position:static;flex:none;font-size:14px}
+.course-grid.four .course-card:not(.wide){padding-bottom:66px}
 /* =========================================================
    BATCH TABLE, SYLLABUS DOWNLOAD, MOBILE CALL BAR
    ========================================================= */
@@ -283,3 +289,4 @@ html{scroll-padding-top:130px}
 body.kb-open .mbar{display:none}
 @media(prefers-reduced-motion:reduce){.mbar a{transition:none}.mbar a:hover{transform:none}}
 .mbar-call{background:var(--accent);color:#07110e}
+
